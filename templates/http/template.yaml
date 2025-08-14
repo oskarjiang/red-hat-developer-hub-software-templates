@@ -12,8 +12,8 @@ spec:
       name: backstage request
       action: http:backstage:request
       input:
-        method: 'GET'
-        path: '/proxy/aftonbladet
+        method: "GET"
+        path: "/proxy/aftonbladet"
   output:
     getResponse: '{{ steps["backstage_request"].output.body }}'
     getCode: '{{ steps["backstage_request"].output.code }}'
