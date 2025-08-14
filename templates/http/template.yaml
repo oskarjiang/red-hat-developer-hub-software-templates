@@ -1,0 +1,20 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: http-test
+  title: Test HTTP
+  description: Try
+spec:
+  owner: oskar
+  type: service
+  steps:
+    - id: backstage_request
+      name: backstage request
+      action: http:backstage:request
+      input:
+        method: 'GET'
+        path: '/proxy/aftonbladet
+  output:
+    getResponse: '{{ steps["backstage_request"].output.body }}'
+    getCode: '{{ steps["backstage_request"].output.code }}'
+    getHeaders: '{{ steps["backstage_request"].output.headers }}'
