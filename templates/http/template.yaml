@@ -9,7 +9,7 @@ spec:
   type: service
   steps:
     - id: backstage_request
-      name: backstage request
+      name: backstage re2quest
       action: http:backstage:request
       input:
         method: "GET"
