@@ -13,7 +13,7 @@ spec:
       action: http:backstage:request
       input:
         method: "GET"
-        path: "/proxy/aftonbladet"
+        path: "/proxy/genderize/?name=test"
     - id: display_outputs
       name: Display Outputs
       action: debug:log
