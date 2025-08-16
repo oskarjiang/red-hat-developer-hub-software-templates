@@ -14,6 +14,14 @@ spec:
       input:
         method: "GET"
         path: "/proxy/aftonbladet"
+    - id: display_outputs
+      name: Display Outputs
+      action: debug:log
+      input:
+        message: |
+          Response Code: ${{ steps.backstage_request.output.code }}
+          Response Body: ${{ steps.backstage_request.output.body }}
+          Response Headers: ${{ steps.backstage_request.output.headers }}
   output:
     getResponse: '{{ steps["backstage_request"].output.body }}'
     getCode: '{{ steps["backstage_request"].output.code }}'
