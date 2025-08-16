@@ -20,8 +20,8 @@ spec:
       input:
         message: |
           Response Code: ${{ steps.backstage_request.output.code }}
-          Response Body: ${{ steps.backstage_request.output.body }}
-          Response Headers: ${{ steps.backstage_request.output.headers }}
+          Response Body: ${{ steps.backstage_request.output.body | dump }}
+          Response Headers: ${{ steps.backstage_request.output.headers | dump }}
   output:
     getResponse: '{{ steps["backstage_request"].output.body }}'
     getCode: '{{ steps["backstage_request"].output.code }}'
