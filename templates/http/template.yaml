@@ -13,7 +13,7 @@ spec:
       action: http:backstage:request
       input:
         method: "GET"
-        path: "/proxy/genderize/?name=test"
+        path: "https://dummyjson.com/products/categories"
     - id: display_outputs
       name: Display Outputs
       action: debug:log
