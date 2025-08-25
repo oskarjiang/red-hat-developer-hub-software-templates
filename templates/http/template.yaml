@@ -20,7 +20,15 @@ spec:
       input:
         message: "Probability: ${{ steps.backstage_request.output.body.probability }}"
   output:
-    text:
-      - title: More information
-        content: |
-          **Entity URL:**`
+    # These show as key/value items in the final summary
+    name: ${{ steps.backstage_request.output.body.name }}
+    gender: ${{ steps.backstage_request.output.body.gender }}
+    probability: ${{ steps.backstage_request.output.body.probability }}
+
+    # Optional: buttons at the bottom of the summary
+    links:
+      - title: Re-run query in Backstage proxy
+        url: /proxy/genderize/?name=test
+      - title: Genderize API (docs)
+        url: https://genderize.io/
+        icon: web
