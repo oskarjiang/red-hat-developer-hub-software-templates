@@ -18,10 +18,7 @@ spec:
       name: Display Outputs
       action: debug:log
       input:
-        message: |
-          Response Code: ${{ steps.backstage_request.output.code }}
-          Response Body: ${{ steps.backstage_request.output.body | dump }}
-          Response Headers: ${{ steps.backstage_request.output.headers | dump }}
+        message: "Probability: ${{ steps.backstage_request.output.body | parseJson | get('probability') }}"
   output:
     getResponse: '{{ steps["backstage_request"].output.body }}'
     getCode: '{{ steps["backstage_request"].output.code }}'
