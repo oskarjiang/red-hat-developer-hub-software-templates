@@ -8,12 +8,31 @@ spec:
   owner: oskar
   type: service
   parameters:
-    - category:
-        title: Category
-        type: string
-        ui:field: DynamicPickExtension
-        ui:options:
-          external_data: https://dummyjson.com/products/categories
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+        category:
+          title: Category
+          type: string
+          ui:field: DynamicPickExtension
+          ui:options:
+            external_data: https://dummyjson.com/products/categories
   steps:
     - id: backstage_request
       name: backstage re2quest
