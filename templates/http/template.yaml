@@ -4,16 +4,16 @@ metadata:
   name: http-test
   title: Test HTTP
   description: Try
-parameters:
-  - category:
-      title: Category
-      type: string
-      ui:field: DynamicPickExtension
-      ui:options:
-        external_data: https://dummyjson.com/products/categories
 spec:
   owner: oskar
   type: service
+  parameters:
+    - category:
+        title: Category
+        type: string
+        ui:field: DynamicPickExtension
+        ui:options:
+          external_data: https://dummyjson.com/products/categories
   steps:
     - id: backstage_request
       name: backstage re2quest
