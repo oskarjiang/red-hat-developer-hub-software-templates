@@ -4,6 +4,13 @@ metadata:
   name: http-test
   title: Test HTTP
   description: Try
+parameters:
+  - category:
+      title: Category
+      type: string
+      ui:field: DynamicPickExtension
+      ui:options:
+        external_data: https://dummyjson.com/products/categories
 spec:
   owner: oskar
   type: service
@@ -14,11 +21,20 @@ spec:
       input:
         method: "GET"
         path: "/proxy/genderize/?name=test"
+    - id: display_outputs2
+      name: Display Outputs
+      action: debug:log
+      input:
+        message: |
+          Response Code: ${{ steps.backstage_request.output.code }}
+          Response Body: ${{ steps.backstage_request.output.body | dump }}
+          Response Headers: ${{ steps.backstage_request.output.headers | dump }}
     - id: display_outputs
       name: Display Outputs
       action: debug:log
       input:
-        message: "Probability: ${{ steps.backstage_request.output.body.probability }}"
+        message: |
+          Probability: ${{ steps.backstage_request.output.body.probability }}
   output:
     text:
       - title: More information
